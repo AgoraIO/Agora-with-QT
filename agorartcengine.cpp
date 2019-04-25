@@ -73,11 +73,6 @@ AgoraRtcEngine::AgoraRtcEngine(QObject *parent) : QObject(parent)
 
 AgoraRtcEngine::~AgoraRtcEngine()
 {
-    if(m_rtcEngine.get()) {
-        auto re = m_rtcEngine.get();
-        m_rtcEngine.release();
-        re->release();
-    }
 }
 
 int AgoraRtcEngine::joinChannel(const QString& key, const QString& channel, int uid)

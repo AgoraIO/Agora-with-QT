@@ -49,7 +49,13 @@ public slots:
 private:
     friend class AgoraRtcEngineEvent;
 private:
-    std::unique_ptr<agora::rtc::IRtcEngine> m_rtcEngine;
+    struct RtcEngineDeleter {
+      void operator()(agora::rtc::IRtcEngine *engine) const {
+        if (engine != nullptr) engine->release();
+      }
+    };
+
+    std::unique_ptr<agora::rtc::IRtcEngine, RtcEngineDeleter> m_rtcEngine;
     std::unique_ptr<agora::rtc::IRtcEngineEventHandler> m_eventHandler;
 };
 
