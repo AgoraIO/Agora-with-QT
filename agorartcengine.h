@@ -17,7 +17,8 @@ public:
     virtual agora::media::IExternalVideoRender* createRenderInstance(const agora::media::ExternalVideoRenerContext& context) override;
     Q_INVOKABLE int joinChannel(const QString& key, const QString& channel, int uid);
     Q_INVOKABLE int leaveChannel();
-    Q_INVOKABLE int muteLocalAudioStream(bool muted);
+	Q_INVOKABLE int muteLocalAudioStream(bool muted);
+
     Q_INVOKABLE int enableVideo(bool enabled);
     Q_INVOKABLE QVariantMap getRecordingDeviceList();
     Q_INVOKABLE QVariantMap getPlayoutDeviceList();
@@ -34,7 +35,7 @@ public:
     Q_INVOKABLE int testCamera(bool start, QQuickItem* view);
     Q_INVOKABLE int setupLocalVideo(QQuickItem* view);
     Q_INVOKABLE int setupRemoteVideo(unsigned int uid, QQuickItem* view);
-    agora::rtc::IRtcEngine* getRtcEngine() {return m_rtcEngine.get();}
+    agora::rtc::IRtcEngine* getRtcEngine() {return m_rtcEngine;}
 signals:
     void joiningChannel();
     void leavingChannel();
@@ -49,7 +50,7 @@ public slots:
 private:
     friend class AgoraRtcEngineEvent;
 private:
-    std::unique_ptr<agora::rtc::IRtcEngine> m_rtcEngine;
+	agora::rtc::IRtcEngine* m_rtcEngine;
     std::unique_ptr<agora::rtc::IRtcEngineEventHandler> m_eventHandler;
 };
 
