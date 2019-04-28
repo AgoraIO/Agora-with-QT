@@ -1,6 +1,6 @@
 # Agora With Qt Quick
 
-这个开源示例项目演示了如何基于 Qt Quick 快速集成 [Agora](www.agora.io) 视频 SDK，实现一对一视频聊天。
+这个开源示例项目演示了如何基于 Qt Quick（32bit） 快速集成 [Agora](www.agora.io) 视频 SDK，实现一对一视频聊天。
 
 在这个示例项目中包含以下功能：
 
@@ -28,7 +28,7 @@ context.appId = ""; // Specify your APP ID here
 ```
 然后在 [Agora.io SDK](https://www.agora.io/cn/download/) 下载 视频通话 + 直播 SDK，并解压后将其中的
 
-* Windows：`lib/agora_rtc_sdk.lib`复制到本项目的 lib 文件夹下
+* Windows：`sdk/include`、`sdk/lib/` 和 `sdk/dll/` 中的内容复制到本项目的 lib 文件夹下
 * Mac：`libs/AgoraRtcEngineKit.framework` 复制到本项目的 lib 文件夹下
 
 最后使用 Qt Creator 打开 `AgoraVideoCall.pro` 工程文件，点击构建成功后即可运行。
