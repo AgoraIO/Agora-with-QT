@@ -24,7 +24,7 @@ Agora SDK reference [Agora Document](https://docs.agora.io/cn/Interactive Broadc
 
 
 ## Developer Environment Requirements
-* Windows/Mac
+* Win7 or higher/Mac
 * Qt Creator
 
 ### Run the sample program

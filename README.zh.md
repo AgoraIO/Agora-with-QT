@@ -18,7 +18,11 @@ Qt Quick
 
 Qt Quick功能实现请参考 [Qt Quick 官方文档](https://doc.qt.io/qt-5/qtquick-index.html)
 
-Agora 功能实现请参考 [Agora 官方文档](https://docs.agora.io/cn/Interactive Broadcast/product_live?platform=All Platforms)
+
+## 开发环境
+* win7以上/Mac
+* QtCreator
+
 
 ## 运行示例程序
 首先在 [Agora.io 注册](https://dashboard.agora.io/cn/signup/) 注册账号，并创建自己的测试项目，获取到 AppID。将 AppID 填写进 `agorartcengine.cpp`
@@ -36,8 +40,7 @@ Agora 功能实现请参考 [Agora 官方文档](https://docs.agora.io/cn/Intera
 ## 运行环境
 * Windows/Mac
 
-## FAQ
-- 如果遇到问题请联系技术支持
+
 
 ## 联系我们
 
