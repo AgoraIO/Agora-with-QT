@@ -11,7 +11,7 @@ class AVideoWidget;
 //VideoRenderImpl must check if the video widget is alive whenever access to the view.
 class VideoRenderImpl : public QObject, public agora::media::IExternalVideoRender
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
     VideoRenderImpl(const agora::media::ExternalVideoRenerContext& context);
     ~VideoRenderImpl();

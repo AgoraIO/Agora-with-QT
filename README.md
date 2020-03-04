@@ -1,52 +1,61 @@
 # Agora With Qt Quick
 
-这个开源示例项目演示了如何基于 Qt Quick（32bit） 快速集成 [Agora](www.agora.io) 视频 SDK，实现一对一视频聊天。
+This opensource project shows how to integrate [Agora](www.agora.io) video SDK with Qt Quick(32bit) and implements  video broadcasting
 
-在这个示例项目中包含以下功能：
 
-Agora 
+The following features are included in this sample project:
 
-- 加入通话和离开通话
-- 实现一对一视频聊天
-- 静音和解除静音
+- Join / leave channel
+- Set role as broadcaster or audience
+- Mute / unmute audio
+- Change camera
+- Setup resolution, frame rate and bit rate
+
 
 Qt Quick
 
-- UI 界面
+- UI 
 
-本项目采用了 Qt Quick 的 UI 界面功能，使用了 Agora 提供的声音视频采集、编码、传输、解码和远端渲染功能。
+This project use Qt Quick as UI and  Agora SDK capture,encode,transfer, decode, render video and audio.
 
-Qt Quick功能实现请参考 [Qt Quick 官方文档](https://doc.qt.io/qt-5/qtquick-index.html)
+Qt Quick reference [Qt Quick website](https://doc.qt.io/qt-5/qtquick-index.html)
 
-Agora 功能实现请参考 [Agora 官方文档](https://docs.agora.io/cn/Interactive Broadcast/product_live?platform=All Platforms)
+Agora SDK reference [Agora Document](https://docs.agora.io/cn/Interactive Broadcast/product_live?platform=All Platforms)
 
-## 运行示例程序
-首先在 [Agora.io 注册](https://dashboard.agora.io/cn/signup/) 注册账号，并创建自己的测试项目，获取到 AppID。将 AppID 填写进 `agorartcengine.cpp`
+
+## Developer Environment Requirements
+* Windows/Mac
+* Qt Creator
+
+### Run the sample program
+
+Register your account with [Agora.io Registration](https://dashboard.agora.io/cn/signup/) and create your own test project to get the AppID.Fill in the AppID into source code `agorartcengine.cpp`
 
 ```c++
-context.appId = ""; // Specify your APP ID here
+    context.appId = ""; // Specify your APP ID here
 ```
-然后在 [Agora.io SDK](https://www.agora.io/cn/download/) 下载 视频通话 + 直播 SDK，并解压后将其中的
 
-* Windows：`sdk/include`、`sdk/lib/` 和 `sdk/dll/` 中的内容复制到本项目的 lib 文件夹下
-* Mac：`libs/AgoraRtcEngineKit.framework` 复制到本项目的 lib 文件夹下
+Next, download the **Agora Video SDK** from [Agora.io SDK](https://docs.agora.io/en/Agora%20Platform/downloads). Unzip the downloaded SDK package and copy the **sdk** to the "Agora-with-QT" folder in project(the old one may be over written).
 
-最后使用 Qt Creator 打开 `AgoraVideoCall.pro` 工程文件，点击构建成功后即可运行。
+* Windows： copy files in`sdk/include`、`sdk/lib/` and`sdk/dll/` to lib folder.
+* 
+* Mac：`libs/AgoraRtcEngineKit.framework` copy to lib folder
 
-## 运行环境
+Finnaly, use Qt Creator to open `AgoraVideoCall.pro` file, then build and run.
+
+## Running Evironment
 * Windows/Mac
 
-## FAQ
-- 如果遇到问题请联系技术支持
+## Contact us
 
-## 联系我们
+- For potential issues, you may take a look at our [FAQ](https://docs.agora.io/en/faq) first
+- Dive into [Agora SDK Samples](https://github.com/AgoraIO) to see more tutorials
+- Would like to see how Agora SDK is used in more complicated real use case? Take a look at [Agora Use Case](https://github.com/AgoraIO-usecase)
+- Repositories managed by developer communities can be found at [Agora Community](https://github.com/AgoraIO-Community)
+- You can find full API document at [Document Center](https://docs.agora.io/en/)
+- If you encounter problems during integration, you can ask question in [Developer Forum](https://stackoverflow.com/questions/tagged/agora.io)
+- You can file bugs about this sample at [issue](https://github.com/AgoraIO/Agora-with-QT/issues)
 
-- 完整的 API 文档见 [文档中心](https://docs.agora.io/cn/)
-- 如果在集成中遇到问题，你可以到 [开发者社区](https://dev.agora.io/cn/) 提问
-- 如果有售前咨询问题，可以拨打 400 632 6626，或加入官方QQ群 12742516 提问
-- 如果需要售后技术支持，你可以在 [Agora Dashboard](https://dashboard.agora.io) 提交工单
-- 如果发现了示例代码的bug，欢迎提交 [issue](https://github.com/AgoraIO/Agora-with-QT/issues)
+## License
 
-## 代码许可
-
-The MIT License (MIT).
+The MIT License (MIT)

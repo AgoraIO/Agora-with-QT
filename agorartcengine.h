@@ -10,7 +10,7 @@ class QQuickItem;
 
 class AgoraRtcEngine : public QObject, public agora::media::IExternalVideoRenderFactory
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
     explicit AgoraRtcEngine(QObject *parent = 0);
     ~AgoraRtcEngine();

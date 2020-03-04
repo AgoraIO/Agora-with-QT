@@ -13,7 +13,7 @@ class VideoRendererOpenGL;
 
 class AVideoWidget : public QQuickPaintedItem
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
     AVideoWidget(QQuickItem *parent = 0);
     ~AVideoWidget();

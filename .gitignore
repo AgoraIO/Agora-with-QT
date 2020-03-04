@@ -72,3 +72,7 @@ Thumbs.db
 *.lib
 
 audio_sample.wav
+
+win32/
+debug/
+lib/
