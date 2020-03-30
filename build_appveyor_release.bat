@@ -47,6 +47,9 @@ del *.obj
 %QTDIR%\bin\windeployqt %ProjName%.exe
 cd ..
 
+echo "copy agora sdk"
+copy sdk\dll\*.dll release /y
+
 set PackageDIR=%ProjName%_Win_v%SDKFolderVersion%
 if not exist %PackageDIR% (
   mkdir %PackageDIR%
