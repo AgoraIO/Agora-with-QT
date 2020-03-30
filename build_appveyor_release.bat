@@ -19,6 +19,7 @@ if exist AgoraSDK.zip (
 )
 
 xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\lib lib /y
+xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\dll dll /y
 xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\include\*.* lib /y
 
 if exist AgoraSDK (rmdir /S /Q AgoraSDK)
