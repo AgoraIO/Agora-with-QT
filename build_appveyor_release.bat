@@ -48,7 +48,7 @@ del *.obj
 cd ..
 
 echo "copy agora sdk"
-copy sdk\dll\*.dll release /y
+copy lib\dll\*.dll release /y
 
 set PackageDIR=%ProjName%_Win_v%SDKFolderVersion%
 if not exist %PackageDIR% (
