@@ -1,0 +1,9 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+install:
+- cmd: ''
+build_script:
+- cmd: call build_appveyor_release.bat 3_0_0 3.0.0 C:\Qt\5.13.2\msvc2017 AgoraVideoCall x86
+artifacts:
+- path: AgoraVideoCall_Win_v*.zip
+  name: AgoraVideoCall_Win_QT
