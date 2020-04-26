@@ -41,7 +41,7 @@ Next, download the **Agora Video SDK** from [Agora.io SDK](https://docs.agora.io
 * 
 * Mac：`libs/AgoraRtcEngineKit.framework` copy to lib folder
 
-Finnaly, use Qt Creator to open `AgoraVideoCall.pro` file, then build and run.
+Finaly, use Qt Creator to open `AgoraVideoCall.pro` file, then build and run.
 
 ## Running Evironment
 * Windows/Mac
