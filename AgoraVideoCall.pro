@@ -27,8 +27,12 @@ HEADERS += \
 
 
 win32: {
-INCLUDEPATH += $$PWD/lib
-LIBS += -L$$PWD/lib/ -lagora_rtc_sdk
+    INCLUDEPATH += $$PWD/sdk/include
+    LIBS += -L$$PWD/sdk/lib/ -lagora_rtc_sdk
+    exists(sdk/dll/*.dll){
+        QMAKE_POST_LINK += copy sdk\dll\*.dll debug
+        QMAKE_POST_LINK += && copy sdk\dll\*.dll release
+    }
 }
 
 macx:{

@@ -18,9 +18,9 @@ if exist AgoraSDK.zip (
   exit
 )
 
-xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\lib lib /y
-xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\dll dll /y
-xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\include\*.* lib /y
+xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk sdk /y
+::xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\dll dll /y
+::xcopy /S /I AgoraSDK\Agora_Native_SDK_for_Windows_v%SDKFolderVersion%_FULL\sdk\include\*.* lib /y
 
 if exist AgoraSDK (rmdir /S /Q AgoraSDK)
 del AgoraSDK.zip
@@ -49,7 +49,7 @@ del *.obj
 cd ..
 
 echo "copy agora sdk"
-copy dll\*.dll release /y
+copy sdk\dll\*.dll release /y
 
 set PackageDIR=%ProjName%_Win_v%SDKFolderVersion%
 if not exist %PackageDIR% (
@@ -57,7 +57,7 @@ if not exist %PackageDIR% (
 )
 
 move release %PackageDIR%
-rmdir /S /Q lib
+rmdir /S /Q sdk
 rmdir /S /Q release
  7z a -tzip -r %PackageDIR%.zip  %PackageDIR%
 

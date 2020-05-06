@@ -32,7 +32,7 @@ Qt Quick功能实现请参考 [Qt Quick 官方文档](https://doc.qt.io/qt-5/qtq
 
 然后在 [Agora.io SDK](https://www.agora.io/cn/download/) 下载 视频通话 + 直播 SDK，并解压后将其中的
 
-* Windows：`sdk/include`、`sdk/lib/` 和 `sdk/dll/` 中的内容复制到本项目的 lib 文件夹下
+* Windows：sdk整个文件夹拷贝到AgoraVideoCall.pro所在的目录。
 * Mac：`libs/AgoraRtcEngineKit.framework` 复制到本项目的 lib 文件夹下
 
 最后使用 Qt Creator 打开 `AgoraVideoCall.pro` 工程文件，点击构建成功后即可运行。
