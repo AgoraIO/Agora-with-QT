@@ -37,7 +37,7 @@ Register your account with [Agora.io Registration](https://dashboard.agora.io/cn
 
 Next, download the **Agora Video SDK** from [Agora.io SDK](https://docs.agora.io/en/Agora%20Platform/downloads). Unzip the downloaded SDK package and copy the **sdk** to the "Agora-with-QT" folder in project(the old one may be over written).
 
-* Windows： copy files in`sdk/include`、`sdk/lib/` and`sdk/dll/` to lib folder.
+* Windows： copy folder sdk to the directory where AgoraVideoCall.pro is located in.
 * 
 * Mac：`libs/AgoraRtcEngineKit.framework` copy to lib folder
 
