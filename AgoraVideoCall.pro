@@ -29,9 +29,11 @@ HEADERS += \
 win32: {
     INCLUDEPATH += $$PWD/sdk/include
     LIBS += -L$$PWD/sdk/lib/ -lagora_rtc_sdk
-    exists(sdk/dll/*.dll){
+    CONFIG(Debug, Debug|Release){
         QMAKE_POST_LINK += copy sdk\dll\*.dll debug
-        QMAKE_POST_LINK += && copy sdk\dll\*.dll release
+    } else {
+        QMAKE_POST_LINK += copy sdk\dll\*.dll release
+        QMAKE_POST_LINK  += && windeployqt Release\AgoraVideoCall.exe
     }
 }
 
