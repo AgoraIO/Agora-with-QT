@@ -3,7 +3,7 @@
 #include "video_render_impl.h"
 #include <QPainter>
 #include <QQuickWindow>
-
+#include <QMutexLocker>
 AVideoWidget::AVideoWidget(QQuickItem *parent)
     : QQuickPaintedItem(parent)
     , m_render(new VideoRendererOpenGL(width(), height()))
@@ -23,7 +23,7 @@ AVideoWidget::~AVideoWidget()
 
 int AVideoWidget::setViewProperties(int zOrder, float left, float top, float right, float bottom)
 {
-    std::lock_guard<std::mutex> lock(m_mutex);
+	QMutexLocker lock(&m_mutex);
     if (m_render)
         return m_render->setStreamProperties(zOrder, left, top, right, bottom);
     return -1;
@@ -40,7 +40,8 @@ void AVideoWidget::handleWindowChanged(QQuickWindow *win)
 void AVideoWidget::cleanup()
 {
     {
-    std::lock_guard<std::mutex> lock(m_mutex);
+	QMutexLocker lock(&m_mutex);
+   
     if (m_frame)
     {
         m_frame->release();
@@ -48,6 +49,7 @@ void AVideoWidget::cleanup()
     }
     }
     m_render.reset();
+	m_render = nullptr;
     emit widgetInvalidated();
 }
 
@@ -62,7 +64,7 @@ int AVideoWidget::deliverFrame(const agora::media::IVideoFrame& videoFrame, int 
         return -1;
     int r;
     {
-    std::lock_guard<std::mutex> lock(m_mutex);
+	QMutexLocker lock(&m_mutex);
     m_rotation = rotation;
     m_mirrored = mirrored;
     r = videoFrame.copyFrame(&m_frame);
@@ -85,7 +87,7 @@ void AVideoWidget::paint(QPainter *painter)
         m_render->initialize(width(), height());
 
     {
-    std::lock_guard<std::mutex> lock(m_mutex);
+	QMutexLocker lock(&m_mutex);
     m_render->setFrameInfo(m_rotation, m_mirrored);
     if (m_frame)
         m_render->renderFrame(*m_frame);

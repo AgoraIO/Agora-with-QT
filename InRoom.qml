@@ -92,6 +92,7 @@ InRoomForm {
             var view = inroom.findRemoteView(uid)
             if (view)
                 inroom.unbindView(uid, view)
+			agoraRtcEngine.setupRemoteVideo(uid, 0)
         }
     }
     function handleUserJoined(uid) {

@@ -4,7 +4,7 @@
 #include <QQuickPaintedItem>
 #include <mutex>
 #include <memory>
-
+#include <QMutex>
 namespace agora { namespace media {
     class IVideoFrame;
 }}
@@ -33,7 +33,7 @@ public slots:
     void cleanup();
 private:
     std::unique_ptr<VideoRendererOpenGL> m_render;
-    std::mutex m_mutex;
+	QMutex m_mutex;
     //usage of m_frame should be guarded by m_mutex
     agora::media::IVideoFrame* m_frame;
     int m_rotation;

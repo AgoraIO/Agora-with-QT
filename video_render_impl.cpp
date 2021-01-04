@@ -1,7 +1,7 @@
 #include "video_render_impl.h"
 #include "avideowidget.h"
 #include <QDebug>
-
+#include <QMutexLocker>
 using namespace agora::media;
 
 VideoRenderImpl::VideoRenderImpl(const agora::media::ExternalVideoRenerContext& context)
@@ -23,7 +23,7 @@ VideoRenderImpl::~VideoRenderImpl()
 void VideoRenderImpl::handleWidgetInvalidated()
 {
     {
-    std::lock_guard<std::mutex> lock(m_mutex);
+		QMutexLocker lock(&m_mutex);
     m_view = nullptr;
     }
     if (m_renderCallback)
@@ -38,7 +38,7 @@ void VideoRenderImpl::handleViewSizeChanged(int width, int height)
 
 int VideoRenderImpl::deliverFrame(const agora::media::IVideoFrame& videoFrame, int rotation, bool mirrored)
 {
-    std::lock_guard<std::mutex> lock(m_mutex);
+	QMutexLocker lock(&m_mutex);
     if (m_view)
         return m_view->deliverFrame(videoFrame, rotation, mirrored);
     return -1;

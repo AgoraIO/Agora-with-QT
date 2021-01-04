@@ -90,6 +90,10 @@ int AgoraRtcEngine::joinChannel(const QString& key, const QString& channel, int 
 
 int AgoraRtcEngine::leaveChannel()
 {
+	for (auto iter : m_remoteUidSet) {
+		VideoCanvas canvas(NULL, RENDER_MODE_HIDDEN, iter);
+		m_rtcEngine->setupRemoteVideo(canvas);
+	}
     int r = m_rtcEngine->leaveChannel();
     if (!r)
         emit leavingChannel();
@@ -118,6 +122,10 @@ int AgoraRtcEngine::setupLocalVideo(QQuickItem* view)
 
 int AgoraRtcEngine::setupRemoteVideo(unsigned int uid, QQuickItem* view)
 {
+	if (view == NULL)
+		m_remoteUidSet.erase(uid);
+	else
+		m_remoteUidSet.insert(uid);
 //    qDebug() << "setup remote video " << view << " for user " << uid;
     agora::rtc::view_t v = reinterpret_cast<agora::rtc::view_t>(static_cast<AVideoWidget*>(view));
     VideoCanvas canvas(v, RENDER_MODE_HIDDEN, uid);

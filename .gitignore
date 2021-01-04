@@ -77,3 +77,4 @@ win32/
 debug/
 lib/
 sdk/
+.vs/
