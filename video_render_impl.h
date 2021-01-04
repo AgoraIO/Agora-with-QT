@@ -3,7 +3,7 @@
 #include <IAgoraMediaEngine.h>
 #include <QObject>
 #include <mutex>
-
+#include <QMutex>
 class AVideoWidget;
 
 //Instances of VideoRenderImpl is created and destroyed by Agora Media Engine.
@@ -24,7 +24,7 @@ public slots:
 private:
     AVideoWidget* m_view;
     agora::media::IExternalVideoRenderCallback* m_renderCallback;
-    std::mutex m_mutex;
+	QMutex m_mutex;
 };
 
 

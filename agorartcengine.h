@@ -5,7 +5,7 @@
 #include <QVariant>
 #include <IAgoraRtcEngine.h>
 #include "video_render_impl.h"
-
+#include <set>
 class QQuickItem;
 
 class AgoraRtcEngine : public QObject, public agora::media::IExternalVideoRenderFactory
@@ -52,6 +52,7 @@ private:
 private:
 	agora::rtc::IRtcEngine* m_rtcEngine;
     std::unique_ptr<agora::rtc::IRtcEngineEventHandler> m_eventHandler;
+	std::set<unsigned int> m_remoteUidSet;
 };
 
 #endif // AGORARTCENGINE_H
